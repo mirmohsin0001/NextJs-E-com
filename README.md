@@ -71,38 +71,41 @@ This roadmap provides a starting point for your MERN project. Feel free to adjus
 ## Folder Structure 
 Backend Folder Structure (Express.js)
 my-sustainable-fashion-app/
-├── server/ 
-│   ├── app.js 
-│   ├── config/ 
-│   │   ├── config.js 
-│   │   ├── database.js 
-│   │   ├── env.js 
-│   ├── controllers/ 
-│   │   ├── authController.js 
-│   │   ├── productController.js 
-│   │   ├── orderController.js 
-│   │   ├── sellerController.js 
-│   ├── models/ 
-│   │   ├── User.js 
-│   │   ├── Product.js 
-│   │   ├── Order.js 
-│   │   ├── Seller.js 
-│   ├── routes/ 
-│   │   ├── authRoutes.js 
-│   │   ├── productRoutes.js 
-│   │   ├── orderRoutes.js 
-│   │   ├── sellerRoutes.js 
-│   ├── middleware/ 
-│   │   ├── authMiddleware.js 
-│   │   ├── errorMiddleware.js 
-│   ├── services/ 
-│   │   ├── emailService.js 
-│   │   ├── paymentService.js 
-│   ├── utils/ 
-│   │   ├── helpers.js 
-│   ├── bin/ 
-│   │   ├── www.js 
-├── package.json 
+
+```
+      ├── server/ 
+      │   ├── app.js 
+      │   ├── config/ 
+      │   │   ├── config.js 
+      │   │   ├── database.js 
+      │   │   ├── env.js 
+      │   ├── controllers/ 
+      │   │   ├── authController.js 
+      │   │   ├── productController.js 
+      │   │   ├── orderController.js 
+      │   │   ├── sellerController.js 
+      │   ├── models/ 
+      │   │   ├── User.js 
+      │   │   ├── Product.js 
+      │   │   ├── Order.js 
+      │   │   ├── Seller.js 
+      │   ├── routes/ 
+      │   │   ├── authRoutes.js 
+      │   │   ├── productRoutes.js 
+      │   │   ├── orderRoutes.js 
+      │   │   ├── sellerRoutes.js 
+      │   ├── middleware/ 
+      │   │   ├── authMiddleware.js 
+      │   │   ├── errorMiddleware.js 
+      │   ├── services/ 
+      │   │   ├── emailService.js 
+      │   │   ├── paymentService.js 
+      │   ├── utils/ 
+      │   │   ├── helpers.js 
+      │   ├── bin/ 
+      │   │   ├── www.js 
+      ├── package.json 
+```
 
 ## Explanation:
  - [x] server/:
@@ -124,9 +127,7 @@ my-sustainable-fashion-app/
  - [x] Organization: A well-organized folder structure improves code readability, maintainability, and collaboration.
  - [x] Separation of Concerns: Separate concerns into different files and folders to improve code modularity and testability.
  - [x] Convention over Configuration: Adhere to common conventions to make your code more predictable and easier to understand for other developers.
-This is a basic structure, and you can customize it to fit your specific needs. For example, you might add additional folders for tests, documentation, or logging.
-I hope this helps! Let me know if you have any further questions.
-f
+> This is a basic structure, and you can customize it to fit your specific needs. For example, you might add additional folders for tests, documentation, or logging.
 
 ## Concept:
  - [x] Focus: Create an online marketplace specifically for Garden Blossom
@@ -169,4 +170,5 @@ This project provides a valuable learning experience by:
  - [x] Developing a real-world application: Gain practical experience in building a complex web application using the MERN stack.
  - [x] Working with a relevant and impactful domain: Explore the growing field of sustainable fashion and contribute to a more ethical and environmentally conscious industry.
  - [x] Building a scalable and maintainable system: Learn best practices for designing and developing a robust and scalable e-commerce platform.
-I hope this project idea inspires you! Let me know if you'd like to brainstorm further or explore other MERN project ideas.
+
+> I hope this project idea inspires you! Let me know if you'd like to brainstorm further or explore other MERN project ideas.
