@@ -1,6 +1,6 @@
-#trying to make an e commerce page for our family bussiness named "Garden Blossom" dealing with flower nurseries and seedlings
+# trying to make an e commerce page for our family bussiness named "Garden Blossom" dealing with flower nurseries and seedlings
 
-##Concept:
+## Concept:
  * Focus: Create an online marketplace specifically for Garden Blossom
  * Key Features:
    * Product Catalog:
