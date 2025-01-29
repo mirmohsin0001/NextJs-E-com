@@ -3,11 +3,6 @@
 import Link from 'next/link'
 import React from 'react'
 
-const handleSubmit=() => {
-  var formData = new FormData
-  console.log(formData)
-}
-
 const page = () => {
   return (
     <>
@@ -17,7 +12,7 @@ const page = () => {
             <h1 className="title-font font-medium text-3xl text-gray-900">Sign Up next level shoindcgoitch ethical authentic, poko scenester</h1>
             <p className="leading-relaxed mt-4">Poke slow-carb mixtape knausgaard, typewriter street art gentrify hammock starladder roathse. Craies vegan tousled etsy austin.</p>
           </div>
-          <form method='post' action={handleSubmit} className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+          <form method='post' className="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
             <h2 className="text-gray-900 text-lg font-medium title-font mb-5">Sign Up</h2>
             <div className="relative mb-4">
               <label htmlFor="email" className="leading-7 text-sm text-gray-600">Email</label>
