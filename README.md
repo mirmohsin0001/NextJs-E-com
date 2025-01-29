@@ -4,7 +4,7 @@
 
 ## Roadmap
 ### Phase 1: Planning & Setup
- - [x] Project Definition & Scope:
+- [x] Project Definition & Scope:
    - [x] Define the core features and functionalities.
    - [x] Identify target audience and user personas.
    - [x] Conduct market research on competitors and industry trends.
@@ -17,54 +17,54 @@
    - [x] Set up a local development environment (Node.js, MongoDB).
    - [x] Plan the project structure (frontend, backend, API).
 ### Phase 2: Backend Development
- - [x] API Development:
-   - [x] User Authentication & Authorization: Implement user registration, login, and session management.
-   - [x] Product Management: Create API endpoints for creating, reading, updating, and deleting product data.
-   - [x] Order Processing: Develop APIs for handling order creation, payment processing, and order fulfillment.
-   - [x] Seller Management: Build APIs for seller registration, product listing management, and order tracking.
- - [x] Database Design:
-   - [x] Design the MongoDB schema for users, products, orders, sellers, and other relevant data.
-   - [x] Implement data validation and security measures.
+ - [ ] API Development:
+   - [ ] User Authentication & Authorization: Implement user registration, login, and session management.
+   - [ ] Product Management: Create API endpoints for creating, reading, updating, and deleting product data.
+   - [ ] Order Processing: Develop APIs for handling order creation, payment processing, and order fulfillment.
+   - [ ] Seller Management: Build APIs for seller registration, product listing management, and order tracking.
+ - [ ] Database Design:
+   - [ ] Design the MongoDB schema for users, products, orders, sellers, and other relevant data.
+   - [ ] Implement data validation and security measures.
 ### Phase 3: Frontend Development
- - [x] User Interface (UI) Design:
-   - [x] Create wireframes and mockups for the user interface.
-   - [x] Focus on a clean, modern, and user-friendly design.
-   - [x] Prioritize visual appeal and accessibility.
- - [x] React Component Development:
-   - [x] Build React components for:
-     - [x] Product listing and detail pages.
-     - [x] Shopping cart and checkout process.
-     - [x] User profiles and order history.
-     - [x] Search and filtering functionalities.
-     - [x] Seller dashboard (if applicable).
- - [x] Frontend Integration:
-   - [x] Integrate the frontend with the backend API.
-   - [x] Handle data fetching, state management, and user interactions.
+ - [ ] User Interface (UI) Design:
+   - [ ] Create wireframes and mockups for the user interface.
+   - [ ] Focus on a clean, modern, and user-friendly design.
+   - [ ] Prioritize visual appeal and accessibility.
+ - [ ] React Component Development:
+   - [ ] Build React components for:
+     - [ ] Product listing and detail pages.
+     - [ ] Shopping cart and checkout process.
+     - [ ] User profiles and order history.
+     - [ ] Search and filtering functionalities.
+     - [ ] Seller dashboard (if applicable).
+ - [ ] Frontend Integration:
+   - [ ] Integrate the frontend with the backend API.
+   - [ ] Handle data fetching, state management, and user interactions.
 ### Phase 4: Testing & Deployment
- - [x] Unit Testing:
-   - [x] Write unit tests for individual components and API endpoints.
- - [x] Integration Testing:
-   - [x] Test the integration between frontend and backend.
- - [x] User Acceptance Testing (UAT):
-   - [x] Involve beta testers to provide feedback on the user experience.
- - [x] Deployment:
-   - [x] Deploy the application to the chosen hosting provider.
-   - [x] Configure server settings and ensure proper security measures.
+ - [ ] Unit Testing:
+   - [ ] Write unit tests for individual components and API endpoints.
+ - [ ] Integration Testing:
+   - [ ] Test the integration between frontend and backend.
+ - [ ] User Acceptance Testing (UAT):
+   - [ ] Involve beta testers to provide feedback on the user experience.
+ - [ ] Deployment:
+   - [ ] Deploy the application to the chosen hosting provider.
+   - [ ] Configure server settings and ensure proper security measures.
 ### Phase 5: Post-Launch
- - [x] Monitoring & Maintenance:
-   - [x] Monitor application performance and address any issues.
-   - [x] Regularly update and maintain the application.
- - [x] User Feedback & Support:
-   - [x] Gather user feedback and address any concerns.
-   - [x] Provide customer support channels (e.g., email, chat).
- - [x] Marketing & Growth:
-   - [x] Promote the platform through social media, content marketing, and other channels.
-   - [x] Build relationships with sustainable fashion brands.
+ - [ ] Monitoring & Maintenance:
+   - [ ] Monitor application performance and address any issues.
+   - [ ] Regularly update and maintain the application.
+ - [ ] User Feedback & Support:
+   - [ ] Gather user feedback and address any concerns.
+   - [ ] Provide customer support channels (e.g., email, chat).
+ - [ ] Marketing & Growth:
+   - [ ] Promote the platform through social media, content marketing, and other channels.
+   - [ ] Build relationships with sustainable fashion brands.
 ### Key Considerations Throughout the Project:
- - [x] Sustainability: Prioritize eco-friendly practices throughout the development and operation of the platform.
- - [x] User Experience (UX): Focus on creating a seamless and enjoyable user experience.
- - [x] Security: Implement robust security measures to protect user data and prevent fraud.
- - [x] Scalability: Design the platform to accommodate future growth and increased traffic.
+ - [ ] Sustainability: Prioritize eco-friendly practices throughout the development and operation of the platform.
+ - [ ] User Experience (UX): Focus on creating a seamless and enjoyable user experience.
+ - [ ] Security: Implement robust security measures to protect user data and prevent fraud.
+ - [ ] Scalability: Design the platform to accommodate future growth and increased traffic.
 Remember: This is a general roadmap, and the specific steps and timelines may vary depending on the project's scope and complexity.
 This roadmap provides a starting point for your MERN project. Feel free to adjust it based on your specific needs and priorities. Good luck!
 
