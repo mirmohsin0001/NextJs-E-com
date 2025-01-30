@@ -31,7 +31,7 @@ const page = () => {
               <label className="leading-7 text-sm text-gray-600">Email</label>
               <input {...register("email", { required: true })} type='email' className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
               <label className="leading-7 text-sm text-gray-600">Password</label>
-              <input  {...register("password", { required: true, minLength: { value: 8, message: 'Minimun password length is 8' } })} type='password' className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
+              <input  {...register("password", { required: true, minLength: { value: 8, message: 'Minimum password length is 8' } })} type='password' className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
               <label htmlFor="cpassword" className="leading-7 text-sm text-gray-600">Confirm Password</label>
               <input type='password' {...register("cpassword", {
                 required: true, validate: (val) => {
