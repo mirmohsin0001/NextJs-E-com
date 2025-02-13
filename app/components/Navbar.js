@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/public/logo.png'
@@ -9,6 +9,19 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const Navbar = () => {
+
+
+
+  const [menu, setMenu] = useState(false)
+
+  function handleClick() {
+    setMenu(!menu)
+    console.log(menu)
+  }
+
+
+
+
   return (
 
     <>
@@ -34,6 +47,7 @@ const Navbar = () => {
             <Link className="mr-5 hover:text-gray-900" href='/contact' >Contact Us</Link>
           </nav>
 
+
           {/* USER SIGN IN */}
           <Link className='hidden md:block' href={'/logIn'}>                                            {/* responsiev */}
             <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
@@ -45,14 +59,43 @@ const Navbar = () => {
           </Link>
 
           {/* HAMBURGER */}
-          <div className='flex ml-auto  md:hidden' >                                                  {/* responsive */}
-            <GiHamburgerMenu size={32} />
+          <div className='flex ml-auto cursor-pointer  md:hidden' >                                                  {/* responsive */}
+            <GiHamburgerMenu size={32} onClick={handleClick} />
           </div>
+
+          {/* MOBILE NAV LINKS */}
+
+          {menu && (
+            <nav className="md:hidden absolute top-20 right-0 bg-white w-full shadow-lg z-50">
+
+              <div className="flex flex-col items-center text-base justify-center py-4">
+                <Link className="mb-3 hover:text-gray-900" href='/'>Home</Link>
+                <Link className="mb-3 hover:text-gray-900" href='/shop'>Shop</Link>
+                <Link className="mb-3 hover:text-gray-900" href='/about'>About</Link>
+                <Link className="mb-3 hover:text-gray-900" href='/contact'>Contact Us</Link>
+
+                <Link href={'/logIn'}>
+
+                  <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4">
+                    My Account
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </button>
+                </Link>
+              </div>
+            </nav>
+          )}
+
 
         </div>
       </header>
     </>
+
   )
+
+
 }
+
 
 export default Navbar
