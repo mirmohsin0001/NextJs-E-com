@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
+import Navbar from '../components/Navbar'
 
 const page = () => {
     return (
         <>
+            <Navbar />
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-24 mx-auto flex flex-wrap items-center">
                     <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
