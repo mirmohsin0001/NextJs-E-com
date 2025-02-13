@@ -1,4 +1,4 @@
-// 'use client'; // Mark as a Client Component
+'use client'; // Mark as a Client Component
 
 import axios from "axios";
 

@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 export function middleware(request){
     console.log('running')
 
-    const user = ''                         // falsey value redirects you to admin login page
+    const user = 'loggedinLogic'                         // falsey value redirects you to admin login page
 
     if (!user){
         return NextResponse.redirect(
