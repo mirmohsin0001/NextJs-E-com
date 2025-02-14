@@ -12,11 +12,11 @@ export default async function page() {
   return (
     <>
       <h2 className="text-5xl font-semibold text-center mb-4 mt-8">Product List</h2>
-      <div className="">
-        <ProductsList
-          products={products}
-        />
-      </div>
+
+      <ProductsList
+        products={products}
+      />
+
     </>
   );
 }

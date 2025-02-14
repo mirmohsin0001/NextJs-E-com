@@ -1,6 +1,7 @@
 'use client'; // Mark as a Client Component
 
 import axios from "axios";
+import { MdDeleteForever } from "react-icons/md";
 
 export default function ProductList({ products }) {
     const handleDelete = async (id) => {
@@ -24,70 +25,49 @@ export default function ProductList({ products }) {
 
     return (
         <>
-            <section className="text-gray-600 body-font ">
-                <div className="container p-4 mx-auto">
-                    <div className="flex flex-wrap -m-4 gap-2">
+            {/* <section className="text-gray-600 body-font"> */}
+
+            <ul className="flex flex-wrap -m-4 ">
 
 
 
-                        {/* PRODUCT MAPPING STARTS */}
-                        {products.map((product) => (
-                            <div key={product.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                                <a className="block relative h-48 rounded overflow-hidden">
-                                    <img alt="ecommerce" className="object-cover object-center w-full h-full block"
-                                        // src={product.image}
-                                        src="https://dummyimage.com/421x261"
-                                    />
-                                </a>
-                                <div className="mt-4">
-                                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                                        {product.category}
-                                    </h3>
-                                    <h2 className="text-gray-900 title-font text-lg font-medium">
-                                        {product.name}
-                                    </h2>
-                                    <p className="mt-1">
-                                        {product.price}
-                                    </p>
-                                </div>
-                                <button
-                                    onClick={() => handleDelete(product._id)}
-                                    className="bg-black text-white px-4 py-2 rounded -mx-1 mt-4">
-                                    Delete
-                                </button>
+                {/* PRODUCT MAPPING STARTS */}
+                {products.map((product) => (
+                    <li key={product.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
+
+
+                        <a className="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" className="object-cover object-center w-full h-full block"
+                                src={product.image}
+                            />
+                        </a>
+
+                        <div className="flex justify-between items-end">
+                            <div className="mt-4">
+                                <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
+                                    {product.category}
+                                </h3>
+                                <h2 className="text-gray-900 title-font text-lg font-medium">
+                                    {product.name}
+                                </h2>
+                                <p className="mt-1">
+                                    {product.price}
+                                </p>
                             </div>
-                        ))}
-                        {/* PRODUCT MAPPING ENDS */}
+                            <MdDeleteForever className="text-gray-600" onClick={() => handleDelete(product._id)} size={42} />
+                        </div>
 
 
 
-                        {/* PRODUCT MAPPING STARTS */}
-                        {/* {products.map((product) => {
-                            <div key={product.id} className="lg:w-1/4 md:w-1/2 p-4 w-full">
-                                <a className="block relative h-48 rounded overflow-hidden">
-                                    <img alt="ecommerce" className="object-cover object-center w-full h-full block"
-                                        src={product.image} />
-                                </a>
-                                <div className="mt-4">
-                                    <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
-                                        {product.category}
-                                    </h3>
-                                    <h2 className="text-gray-900 title-font text-lg font-medium">
-                                        {product.name}
-                                    </h2>
-                                    <p className="mt-1">
-                                        {product.price}
-                                    </p>
-                                </div>
-                            </div>
-                        })} */}
-                        {/* PRODUCT MAPPING ENDS */}
+
+                    </li>
+                ))}
+                {/* PRODUCT MAPPING ENDS */}
 
 
+            </ul>
 
-                    </div>
-                </div>
-            </section>
+            {/* </section> */}
         </>
     );
 }
