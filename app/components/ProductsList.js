@@ -27,7 +27,7 @@ export default function ProductList({ products }) {
         <>
             {/* <section className="text-gray-600 body-font"> */}
 
-            <ul className="flex flex-wrap -m-4 ">
+            <ul className="flex flex-wrap">
 
 
 

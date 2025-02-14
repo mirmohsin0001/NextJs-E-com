@@ -7,7 +7,7 @@ const ProductsGrid = ({ products }) => {
         <>
 
 
-            <ul className="flex flex-wrap -m-4">
+            <ul className="flex flex-wrap">
                 {products.map(product =>
                     <li className="lg:w-1/4 md:w-1/2 p-4 w-full" key={product._id} >
 
