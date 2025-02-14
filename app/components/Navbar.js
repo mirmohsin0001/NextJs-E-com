@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import logo from '@/public/logo.png'
+import logo from '@/public/logo2.png'
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -32,11 +32,11 @@ const Navbar = () => {
 
           {/* LOGO */}
           <Link className="flex title-font font-medium items-center text-gray-900 cursor-pointer md:mb-0" href='/'>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            {/* <Image src={logo} width={75} alt="logo" /> */}
-            <span className="ml-3 text-lg md:text-xl">Tailblocks</span>
+            </svg> */}
+            <Image src={logo} width={200} alt="logo" />
+            {/* <span className="ml-3 text-lg md:text-xl">Tailblocks</span> */}
           </Link>
 
           {/* NAV LINKS */}

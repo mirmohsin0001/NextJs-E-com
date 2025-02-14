@@ -1,6 +1,5 @@
 import dbConnect from '@/app/lib/dbConnect';
 import Product from '@/app/models/Product';
-import AddProductForm from '@/app/components/AddProductForm';
 import ProductsList from '@/app/components/ProductsList';
 
 
