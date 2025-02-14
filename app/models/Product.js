@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema({
   category: { type: String, required: true },
   name: { type: String, required: true },
   price: { type: Number, required: true },
-  image: {type: String, require: true},
+  image: {type: String, required: true},
 });
 
 // Check if the model already exists to avoid redefining it

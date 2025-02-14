@@ -1,16 +1,33 @@
-import React from 'react'
-import Products from '../components/Products'
-import Navbar from '../components/Navbar'
+import React, { Suspense } from 'react'
+
+import { getProducts } from '@/app/lib/products';
+import ProductsGrid from '../components/ProductsGrid';
+import Navbar from '../components/Navbar';
 
 
+async function Products() {
+    const products = await getProducts();
+    console.log(products)
 
-const page = () => {
     return (
-        <>
-            <Navbar/>
-            <Products />
-        </>
+        <ProductsGrid products={products} />
     )
 }
 
-export default page
+
+export default function page() {
+
+
+    return (
+        <>
+            <main>
+                <Navbar/>
+                <Suspense fallback={<p>
+                    Fetching Products..
+                </p>} >
+                    <Products />
+                </Suspense>
+            </main>
+        </>
+    )
+}

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import logo from '@/public/logo2.png'
+import Link from 'next/link'
 
 const Footer = () => {
 
@@ -45,7 +46,7 @@ const Footer = () => {
                             <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">QUICK LINKS</h2>
                             <nav className="list-none mb-10">
                                 <li>
-                                    <a className="text-gray-600 hover:text-gray-800">Home</a>
+                                    <Link href={'/'} className="text-gray-600 hover:text-gray-800">Home</Link>
                                 </li>
                                 <li>
                                     <a className="text-gray-600 hover:text-gray-800">Shop</a>

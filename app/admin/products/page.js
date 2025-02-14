@@ -8,7 +8,6 @@ export default async function page() {
 
   // Fetch products from MongoDB and convert them to plain objects
   const products = await Product.find({}).lean();
-  console.log(products)
 
   return (
     <>
