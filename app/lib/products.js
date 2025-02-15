@@ -7,3 +7,8 @@ export async function getProducts() {
     const products = await Product.find({}).lean();
     return products;
 }
+
+export async function getProduct(slug) {
+    const product = await Product.find({ _id: slug }).lean();
+    return product;
+}
