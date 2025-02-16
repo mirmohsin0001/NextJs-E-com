@@ -6,7 +6,6 @@ import ProductsGrid from '@/app/components/ProductsGrid';
 
 async function Productss() {
     const products = await getProducts();
-    console.log(products)
 
     return (
         <ProductsGrid products={products} />

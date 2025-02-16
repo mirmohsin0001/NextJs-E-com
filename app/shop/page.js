@@ -7,7 +7,6 @@ import Navbar from '../components/Navbar';
 
 async function Products() {
     const products = await getProducts();
-    console.log(products)
 
     return (
         <ProductsGrid products={products} />

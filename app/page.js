@@ -2,7 +2,6 @@ import Features from "./components/Features";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Products from "./components/Products";
-import ProductsGrid from "./components/ProductsGrid";
 import Tesmonials from "./components/Tesmonials";
 
 export default function Home() {

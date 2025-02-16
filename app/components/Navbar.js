@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/public/logo2.png'
+import CartIcon from './CartIcon'
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -16,7 +17,6 @@ const Navbar = () => {
 
   function handleClick() {
     setMenu(!menu)
-    console.log(menu)
   }
 
 
@@ -45,6 +45,11 @@ const Navbar = () => {
             <Link className="mr-5 hover:text-gray-900" href='/shop' >Shop</Link>
             <Link className="mr-5 hover:text-gray-900" href='/about' >About</Link>
             <Link className="mr-5 hover:text-gray-900" href='/contact' >Contact Us</Link>
+            <div className="flex items-center gap-4 mr-8 ml-auto">
+              <Link href="/cart">
+                <CartIcon />
+              </Link>
+            </div>
           </nav>
 
 
@@ -60,13 +65,18 @@ const Navbar = () => {
 
           {/* HAMBURGER */}
           <div className='flex ml-auto cursor-pointer  md:hidden' >                                                  {/* responsive */}
+            <div className="flex items-center gap-4 mr-8 ml-auto">
+              <Link href="/cart">
+                <CartIcon />
+              </Link>
+            </div>
             <GiHamburgerMenu size={32} onClick={handleClick} />
           </div>
 
           {/* MOBILE NAV LINKS */}
 
           {menu && (
-            <nav className="md:hidden absolute top-20 right-0 bg-white w-full shadow-lg z-50">
+            <nav className="md:hidden absolute top-24 right-0 bg-white w-full shadow-lg z-50">
 
               <div className="flex flex-col items-center text-base justify-center py-4">
                 <Link className="mb-3 hover:text-gray-900" href='/'>Home</Link>

@@ -5,10 +5,16 @@ export async function getProducts() {
     await dbConnect();
 
     const products = await Product.find({}).lean();
-    return products;
+    return products.map(product => ({
+        ...product,
+        _id: product._id.toString()
+    }));
 }
 
 export async function getProduct(slug) {
     const product = await Product.find({ _id: slug }).lean();
-    return product;
+    return {
+        ...product,
+        _id: product._id.toString()
+    };
 }
