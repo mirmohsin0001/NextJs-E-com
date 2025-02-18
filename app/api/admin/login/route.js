@@ -26,24 +26,28 @@ export async function POST(req) {
 
   const isPasswordValid = await bcrypt.compare(password, user.password);
 
+
+  //DEBUGGING
+  const isMatch = await bcrypt.compare("Test@123", "$2b$10$RGlKHcqHuZyV3o9eFHvSt.EpFD7pTPgmSdi1g6OBWxwrRgnRn17ei");
+  console.log('isMatch:', isMatch);
+  //DEBUGGING ENDS
+
+
   if(isPasswordValid) {
     return new Response(JSON.stringify({ message: 'Password is valid' }), { status: 200 });
   }
 
   
   if (!isPasswordValid) {
-    console.log('Password is invalid');
     return new Response(JSON.stringify({ message: 'Invalid credentials' }), { status: 401 });
   }
   
-  console.log('Login successful');
-
+  
   const token = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, {
     expiresIn: '1h',
   });
+  
 
-
-  return new Response(JSON.stringify({ message: 'end of the route' }), {status: 200});
 
 
   // return new Response(JSON.stringify({ token }), {
