@@ -15,12 +15,15 @@ const AdminLoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log('Logging in as admin...');
+
     try {
       const response = await axios.post('/api/admin/login', { email, password });
       if (response.status === 200) {
         router.push('/admin');
       }
     } catch (err) {
+      console.error('Login error:', err.response ? err.response.data : err.message);
       setError('Invalid credentials');
     }
   };
