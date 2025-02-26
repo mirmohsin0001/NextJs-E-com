@@ -1,26 +1,89 @@
-'use client'
+'use server'
 
 import React from 'react'
+import { clerkClient } from "@clerk/nextjs/server";
+import { removeRole, setRole } from "@/app/admin/actions";
 
-const page = () => {
+
+export default async function Admin() {
+
+
+  const client = await clerkClient();
+
+  const users = (await client.users.getUserList()).data;
   return (
     <>
       <div className="wrapper flex-col place-items-center font-mono">
         <h1 className="text-5xl font-semibold mt-8 mb-4" >Admin Page</h1>
         <h1 className='my-2'>This is admin page.js</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum voluptate itaque voluptas vel maiores accusamus quam quod perspiciatis consequatur ad voluptatem id, ducimus fugit eaque deleniti, corporis possimus? Eos, veritatis.
-          Reprehenderit voluptas voluptatem, dicta incidunt officia tempora quas.Tempore molestiae corporis dolorem minus quaerat, labore hic quo. Animi rem deserunt quam vitae voluptates dolore esse, ipsam, eveniet iusto exercitationem quas?
-          Cumque tenetur fuga nostrum eligendi, architecto illum dicta eum eaque eveniet earum labore quis odio deserunt, provident fugit iure? Sunt saepe esse commodi animi.  
-          <br /> <br />Voluptas assumenda nobis unde iusto! Ducimus!
-          Dolorem, adipisci. Cudis quasi quidem voluptas fugiat exercitationem! Fuga et saepe, nesciunt id magni nihil laudantium iure porro similique eligendi aliquid.
-          Vel, obcaecati eveniet. Hic, autem obcaecati explicabo doloremque debitis nisi numquam et velit aliquam quos, cupiditate sapiente temporibus dolores ut dignissimos iste? Magnam mollitia aperiam illo, hic eius excepturi voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. At doloribus autem, ea accusantium eum iure. At id dolore ea molestias assumenda vel ducimus ut eos nemo cupiditate velit, dolores inventore?
-          <br /> <br />Voluptas assumenda nobis unde iusto! Ducimus!
-          Dolorem, adipisci. Cudis quasi quidem voluptas fugiat exercitationem! Fuga et saepe, nesciunt id magni nihil laudantium iure porro similique eligendi aliquid.
-          Vel, obcaecati eveniet. Hic, autem obcaecati explicabo doloremque debitis nisi numquam et velit aliquam quos, cupiditate sapiente temporibus dolores ut dignissimos iste? Magnam mollitia aperiam illo, hic eius excepturi voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. At doloribus autem, ea accusantium eum iure. At id dolore ea molestias assumenda vel ducimus ut eos nemo cupiditate velit, dolores inventore?
-        </p>
+
+        <h1 className='text-3xl font-semibold mt-8 mb-3' >Users</h1>
+        {users.map((user) => {
+          return (
+            <div
+              key={user.id}
+              className={`flex items-center justify-between gap-4 p-4 ${users.indexOf(user) % 2 === 0
+                ? "bg-neutral-50 dark:bg-neutral-800"
+                : "bg-white dark:bg-neutral-900"
+                }`}
+            >
+              <div className="flex gap-8">
+                <div className="dark:text-neutral-200">
+                  {user.firstName} {user.lastName}
+                </div>
+
+                <div className="dark:text-neutral-200">
+                  {
+                    user.emailAddresses.find(
+                      (email) => email.id === user.primaryEmailAddressId
+                    )?.emailAddress
+                  }
+                </div>
+
+                <div className="dark:text-neutral-200">
+                  {user.publicMetadata.role}
+                </div>
+              </div>
+
+              <div className="flex gap-2">
+                <form action={setRole} className="inline">
+                  <input type="hidden" value={user.id} name="id" />
+                  <input type="hidden" value="admin" name="role" />
+                  <button
+                    type="submit"
+                    className="px-2 py-1 text-sm border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-700"
+                  >
+                    Make Admin
+                  </button>
+                </form>
+
+                <form action={setRole} className="inline">
+                  <input type="hidden" value={user.id} name="id" />
+                  <input type="hidden" value="moderator" name="role" />
+                  <button
+                    type="submit"
+                    className="px-2 py-1 text-sm border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-700"
+                  >
+                    Make Moderator
+                  </button>
+                </form>
+
+                <form action={removeRole} className="inline">
+                  <input type="hidden" value={user.id} name="id" />
+                  <button
+                    type="submit"
+                    className="px-2 py-1 text-sm border border-neutral-300 dark:border-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-700"
+                  >
+                    Remove Role
+                  </button>
+                </form>
+              </div>
+            </div>
+          );
+        })}
+
+
       </div >
     </>
   )
 }
-
-export default page

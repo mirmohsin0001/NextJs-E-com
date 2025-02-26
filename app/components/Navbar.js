@@ -5,6 +5,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/public/logo2.png'
 import CartIcon from './CartIcon'
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 import { GiHamburgerMenu } from "react-icons/gi";
 
@@ -54,14 +62,14 @@ const Navbar = () => {
 
 
           {/* USER SIGN IN */}
-          <Link className='hidden md:block' href={'/logIn'}>                                            {/* responsiev */}
-            <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-              My Account
-              <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                <path d="M5 12h14M12 5l7 7-7 7"></path>
-              </svg>
-            </button>
-          </Link>
+          <SignedOut>
+            <SignInButton className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
+          </SignedOut>
+
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
 
           {/* HAMBURGER */}
           <div className='flex ml-auto cursor-pointer  md:hidden' >                                                  {/* responsive */}

@@ -1,21 +1,26 @@
-import { NextResponse } from "next/server"
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import { NextResponse } from 'next/server'
 
-export function middleware(request){
-    console.log('running')
 
-    const user = 'loggedinLogic'                         // falsey value redirects you to admin login page
+const isProtectedRoute = createRouteMatcher(['/cart(.*)'])
+const isAdminRoute = createRouteMatcher(['/admin(.*)'])
 
-    if (!user){
-        return NextResponse.redirect(
-            new URL('/admin/login', request.url)
-        )
+export default clerkMiddleware(async (auth, req) => {
+    if (isProtectedRoute(req)) await auth.protect()
+    if (
+        isAdminRoute(req) && (await (auth())).sessionClaims?.metadata?.role !== 'admin'
+    ) {
+        const url = new URL('/', req.url)
+        return NextResponse.redirect(url)
     }
 
-
-    
-    return NextResponse.next()
-}
+})
 
 export const config = {
-    matcher: ['/admin', '/admin/addProduct', '/admin/products']
-} 
+    matcher: [
+        // Skip Next.js internals and all static files, unless found in search params
+        '/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',
+        // Always run for API routes
+        '/(api|trpc)(.*)',
+    ],
+}

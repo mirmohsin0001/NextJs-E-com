@@ -6,6 +6,14 @@ import Footer from "./components/Footer";
 import { CartProvider } from './context/CartContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from '@clerk/nextjs'
 
 
 const geistSans = Geist({
@@ -27,16 +35,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body >
-        <CartProvider>
-          <main className="max-w-screen-xl mx-auto">
-            {children}
-            <ToastContainer />
-          </main>
-        </CartProvider>
-        <Footer />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body >
+          <CartProvider>
+            <main className="max-w-screen-xl mx-auto">
+              {children}
+              <ToastContainer />
+            </main>
+          </CartProvider>
+          <Footer />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
