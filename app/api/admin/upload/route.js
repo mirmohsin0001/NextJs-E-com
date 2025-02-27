@@ -32,8 +32,8 @@ export async function POST(request) {
         .end(buffer);
     });
 
-    revalidatePath('/shop');
     revalidatePath('/');
+    revalidatePath('/shop');
     return NextResponse.json({ success: true, url: result.secure_url });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
