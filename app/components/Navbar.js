@@ -12,6 +12,7 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
+  UserProfile,
 } from '@clerk/nextjs'
 
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -58,17 +59,16 @@ const Navbar = () => {
                 <CartIcon />
               </Link>
             </div>
+            <SignedOut>
+              <SignInButton className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
+            </SignedOut>
+
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
           </nav>
 
 
-          {/* USER SIGN IN */}
-          <SignedOut>
-            <SignInButton className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
-          </SignedOut>
-
-          <SignedIn>
-            <UserButton />
-          </SignedIn>
 
 
           {/* HAMBURGER */}
@@ -85,22 +85,16 @@ const Navbar = () => {
 
           {menu && (
             <nav className="md:hidden absolute top-24 right-0 bg-white w-full shadow-lg z-50">
-
               <div className="flex flex-col items-center text-base justify-center py-4">
                 <Link className="mb-3 hover:text-gray-900" href='/'>Home</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/shop'>Shop</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/about'>About</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/contact'>Contact Us</Link>
+                <div className='py-3 bg-slate-300 w-full text-center'>
+                  <UserButton showName />
+                </div>
 
-                <Link href={'/logIn'}>
 
-                  <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4">
-                    My Account
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                      <path d="M5 12h14M12 5l7 7-7 7"></path>
-                    </svg>
-                  </button>
-                </Link>
               </div>
             </nav>
           )}
