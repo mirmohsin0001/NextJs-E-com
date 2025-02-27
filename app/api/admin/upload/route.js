@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { v2 as cloudinary } from 'cloudinary';
+import { revalidatePath } from 'next/cache';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -31,6 +32,8 @@ export async function POST(request) {
         .end(buffer);
     });
 
+    revalidatePath('/shop');
+    revalidatePath('/');
     return NextResponse.json({ success: true, url: result.secure_url });
   } catch (error) {
     return NextResponse.json({ success: false, error: error.message }, { status: 400 });
