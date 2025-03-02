@@ -4,15 +4,11 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { CartProvider } from './context/CartContext';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'sonner'
+
 import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
+  ClerkProvider
 } from '@clerk/nextjs'
 
 
@@ -41,7 +37,7 @@ export default function RootLayout({ children }) {
           <CartProvider>
             <main className="max-w-screen-xl mx-auto">
               {children}
-              <ToastContainer />
+              <Toaster richColors />
             </main>
           </CartProvider>
           <Footer />

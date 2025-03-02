@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState } from 'react';
-import { toast } from 'react-toastify';
+import { toast } from 'sonner'
 
 const CartContext = createContext();
 
@@ -22,17 +22,18 @@ export const CartProvider = ({ children }) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
       toast.info(`${product.name} quantity updated in cart!`, {
-        position: 'top-right',
-        autoClose: 1500, // Close after 3 seconds
+        position: 'bottom-right',
+        autoClose: 1500, // Close after 1.5 seconds
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+
       });
     } else {
       toast.success(`${product.name} added to cart!`, {
-        position: 'top-right',
-        autoClose: 1500, // Close after 3 seconds
+        position: 'bottom-right',
+        autoClose: 1500, // Close after 1.5 seconds
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
