@@ -1,12 +1,25 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
-import { toast } from 'sonner'
+import { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'sonner';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
+
+  // Load cart data from local storage when the component mounts
+  useEffect(() => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  // Save cart data to local storage whenever the cart state changes
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -28,7 +41,6 @@ export const CartProvider = ({ children }) => {
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-
       });
     } else {
       toast.success(`${product.name} added to cart!`, {
