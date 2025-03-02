@@ -60,7 +60,7 @@ const Navbar = () => {
               </Link>
             </div>
             <SignedOut>
-              <SignInButton className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
+              <SignInButton mode='modal' className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
             </SignedOut>
 
             <SignedIn>
@@ -91,7 +91,7 @@ const Navbar = () => {
                 <Link className="mb-3 hover:text-gray-900" href='/about'>About</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/contact'>Contact Us</Link>
                 <SignedOut>
-                  <SignInButton className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
+                  <SignInButton mode='modal' className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
                 </SignedOut>
                 <div className='py-3  w-full text-center'>
                   <UserButton showName />

@@ -69,12 +69,21 @@ const CartPage = () => {
             ))}
             <div className="mt-4">
               <p className="text-xl font-bold">Total: ${totalPrice.toFixed(2)}</p>
-              <button
-                onClick={clearCart}
-                className="mt-2 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700"
-              >
-                Clear Cart
-              </button>
+              <div className='flex gap-2'>
+
+                <button
+                  onClick={clearCart}
+                  className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700"
+                >
+                  Checkout
+                </button>
+                <button
+                  onClick={clearCart}
+                  className="mt-2 border-2 border-black px-4 py-2 rounded hover:bg-gray-50"
+                >
+                  Clear Cart
+                </button>
+              </div>
             </div>
           </div>
         )}
