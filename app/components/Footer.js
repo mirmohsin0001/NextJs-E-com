@@ -63,20 +63,20 @@ const Footer = () => {
                             <h2 className="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">POLICIES</h2>
                             <nav className="list-none mb-10">
                                 <li>
-                                    <a className="text-gray-600 hover:text-gray-800">Terms and Conditions</a>
+                                    <Link href={'/termsAndConditions'} className="text-gray-600 hover:text-gray-800">Terms and Conditions</Link>
                                 </li>
                                 <li>
-                                    <a className="text-gray-600 hover:text-gray-800">Privacy Policy</a>
+                                    <Link href={'/privacyPolicy'} className="text-gray-600 hover:text-gray-800">Privacy Policy</Link>
                                 </li>
                                 <li>
-                                    <a className="text-gray-600 hover:text-gray-800">Shipping Details</a>
+                                    <Link href={'/shippingAndDelivery'} className="text-gray-600 hover:text-gray-800">Shipping Details</Link>
                                 </li>
                                 <li>
-                                    <a className="text-gray-600 hover:text-gray-800">Refunds and Cancellations</a>
+                                    <Link href={'/cancellationAndRefund'} className="text-gray-600 hover:text-gray-800">Refunds and Cancellations</Link>
                                 </li>
                             </nav>
                         </div>
-                       
+
                     </div>
                 </div>
                 <div className="bg-gray-100">
