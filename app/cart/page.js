@@ -1,6 +1,7 @@
 // app/cart/page.js
 'use client';
 
+import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import { useCart } from '../context/CartContext';
 import { MdDeleteForever } from "react-icons/md";
@@ -26,7 +27,10 @@ const CartPage = () => {
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
         {cart.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <>
+            <p className='mb-4' >Your cart is empty.</p>
+            <Link className='mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700 ' href={'/shop'}>Shop Now</Link>
+          </>
         ) : (
           <div>
             {cart.map((item) => (
