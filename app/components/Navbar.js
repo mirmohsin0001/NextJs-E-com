@@ -91,6 +91,7 @@ const Navbar = () => {
                 <Link className="mb-3 hover:text-gray-900" href='/shop'>Shop</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/about'>About</Link>
                 <Link className="mb-3 hover:text-gray-900" href='/contact'>Contact Us</Link>
+                <Link className="mr-5 hover:text-gray-900" href='/orders' >Orders</Link>
                 <SignedOut>
                   <SignInButton mode='modal' className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" />
                 </SignedOut>
