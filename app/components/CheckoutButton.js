@@ -35,7 +35,7 @@ export default function PaymentButton({ amount }) {
         key: process.env.RAZORPAY_KEY_ID,
         amount: amount * 100,
         currency: "INR",
-        name: "Your Company Name",
+        name: "Kashmir Aromatics",
         description: "Test Transaction",
         order_id: orderId,
         handler: async function (response) {
