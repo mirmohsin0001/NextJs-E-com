@@ -54,6 +54,7 @@ const Navbar = () => {
             <Link className="mr-5 hover:text-gray-900" href='/shop' >Shop</Link>
             <Link className="mr-5 hover:text-gray-900" href='/about' >About</Link>
             <Link className="mr-5 hover:text-gray-900" href='/contact' >Contact Us</Link>
+            <Link className="mr-5 hover:text-gray-900" href='/orders' >Orders</Link>
             <div className="flex items-center gap-4 mr-8 ml-auto">
               <Link href="/cart">
                 <CartIcon />

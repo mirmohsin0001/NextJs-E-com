@@ -2,12 +2,16 @@
 
 import { useState } from "react";
 import Script from "next/script";
+import { useUser } from "@clerk/nextjs";
+import { useCart } from "../context/CartContext";
 
 export default function PaymentButton({ amount }) {
+  const { clearCart } = useCart();
+  const { isSignedIn, user } = useUser();
   const [loading, setLoading] = useState(false);
 
   const createOrderId = async () => {
-    const response = await fetch("/api/createOrder", {
+    const response = await fetch("/api/order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount }),
@@ -18,22 +22,23 @@ export default function PaymentButton({ amount }) {
   };
 
   const processPayment = async () => {
+    if (!isSignedIn) {
+      alert("Please sign in to make a payment.");
+      return;
+    }
+
     setLoading(true);
     try {
       const orderId = await createOrderId();
 
       const options = {
-        key: process.env.RAZORPAY_KEY_ID, // Use NEXT_PUBLIC_ for client-side env vars
+        key: process.env.RAZORPAY_KEY_ID,
         amount: amount * 100,
         currency: "INR",
-        name: "Kashmir Aromatics",
+        name: "Your Company Name",
         description: "Test Transaction",
         order_id: orderId,
         handler: async function (response) {
-          alert("Payment successful! Payment ID: " + response.razorpay_order_id);
-          alert("Payment successful! Payment Signature: " + response.razorpay_payment_id);
-          alert("Payment successful! Payment Signature: " + response.razorpay_signature);
-          // Optionally, verify payment here (see Step 5)
           const data = {
             orderCreationId: orderId,
             razorpayPaymentId: response.razorpay_payment_id,
@@ -47,27 +52,26 @@ export default function PaymentButton({ amount }) {
           const res = await result.json();
           if (res.isOk) {
             alert("Payment verified successfully!");
+            clearCart()
           } else {
             alert("Payment verification failed!");
           }
         },
         prefill: {
-          name: "Customer Name",
-          email: "customer@example.com",
-          contact: "9999999999",
+          name: `${user?.firstName} ${user?.lastName || ""}`,
+          email: user?.emailAddresses[0].emailAddress,
+          contact: user?.phoneNumbers[0]?.phoneNumber || "9999999999",
         },
-        theme: {
-          color: "#3399cc",
-        },
+        theme: { color: "#3399cc" },
       };
 
       const paymentObject = new window.Razorpay(options);
-      paymentObject.on("payment.failed", function (response) {
+      paymentObject.on("payment.failed", (response) => {
         alert("Payment failed: " + response.error.description);
       });
       paymentObject.open();
     } catch (error) {
-      console.error("Payment error:", error);
+      console.error("Payment error: ", error);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -77,8 +81,8 @@ export default function PaymentButton({ amount }) {
   return (
     <>
       <Script src="https://checkout.razorpay.com/v1/checkout.js" />
-      <button onClick={processPayment} disabled={loading} className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">
-        {loading ? "Processing..." : `Pay ₹${amount}`}
+      <button className="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700" onClick={processPayment} disabled={loading}>
+        {loading ? "Processing..." : `Pay Now`}
       </button>
     </>
   );
