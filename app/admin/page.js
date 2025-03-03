@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { clerkClient } from "@clerk/nextjs/server";
-import { removeRole, setRole } from "@/app/admin/actions";
+import { removeRole, setRole } from "@/app/actions";
 
 
 export default async function Admin() {
